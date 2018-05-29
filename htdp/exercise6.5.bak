@@ -1,0 +1,26 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname exercise6.5) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+(define-struct student (last first teacher))
+
+(define (prosess-student a-student a-teacher)
+  (student-last a-student)
+  (student-first a-student)
+  (student-techer a-student))
+
+(define (check a-student a-teacher)
+  (cond
+  [(symbol=? (student-teacher a-student) a-teacher)
+   (student-last a-student)]
+  [else 'none]))
+
+
+(check (make-student 'jack 'lee 'Mrli) 'Mrli)
+
+(define (transfer process-student)
+  (make-student (student-last a-student)
+                (student-first a-student)
+                a-teacher))
+
+
+

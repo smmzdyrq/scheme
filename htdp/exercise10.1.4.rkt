@@ -1,0 +1,15 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname exercise10.1.4) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+(define (euro dollar)
+  (* 1.22 dollar))
+
+(define (convert-euro mylist)
+  (cond
+    [(empty? mylist) empty]
+    [else (cons (euro (first mylist)) (convert-euro (rest mylist)))]))
+
+(define (convert-euro-1 rate mylist)
+  (cond
+    [(empty? mylist) empty]
+    [else (cons (* rate (first mylist)) (convert-euro (rest mylist)))]))
